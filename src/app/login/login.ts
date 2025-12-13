@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { environment } from '../../environments/environment.development';
 import { LoginRequest } from '../login-request';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, RouterModule],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, MatSnackBarModule ],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
