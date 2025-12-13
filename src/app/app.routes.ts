@@ -11,5 +11,6 @@ export const routes: Routes = [
         path: 'login',
         title: 'Login',
         component: Login
-    }
+    },
+    { path: '**', redirectTo: 'login' }
 ];
