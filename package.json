@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "deploy": "ng build --configuration production --base-href /hotel-booking-ui-service/ && npx gh-pages -d dist/hotel-booking-ui-service",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:hotel-booking-ui-service": "node dist/hotel-booking-ui-service/server/server.mjs"
