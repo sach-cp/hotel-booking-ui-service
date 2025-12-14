@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: write   # REQUIRED for gh-pages push
 
 jobs:
   deploy:
@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true   # IMPORTANT
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -31,4 +33,6 @@ jobs:
         run: npm install
 
       - name: Build & Deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run deploy
